@@ -4,6 +4,26 @@ All notable changes to the StayBold project will be documented in this file.
 
 ## [Unreleased]
 
+### 2025-12-03
+
+#### Features Added
+- Added notes field to habit tracking modal with textarea input
+- Notes display as 📝 icon on calendar when present
+- Added "today" CSS class to highlight current day
+- Changed alcohol display from beer emoji to text labels (Few drinks, Tipsy, Drunk, Hammered, Black out)
+- "No drinks" days show text label + green background
+
+#### Deployment
+- Deployed backend to Render at https://staybold.onrender.com
+- Added gunicorn for production WSGI server
+- Updated frontend API_URL to production endpoint
+- Frontend deployed to personal domain
+- Note: .htaccess password protection to be added
+
+#### Bug Fixes
+- Fixed duplicate "today" variable declaration
+- Reordered indicators display: emojis first, then alcohol text label
+
 ### 2025-12-02
 
 #### Initial Setup
@@ -25,6 +45,6 @@ All notable changes to the StayBold project will be documented in this file.
 
 #### Backend
 - Built Flask API with JSON file storage
-- Endpoints: GET/POST /api/habits, GET /api/habits/<year>/<month>
+- Endpoints: GET/POST /api/habits, GET /api/habits/<year>/<month>, DELETE /api/habits/<date>
 - CORS enabled for frontend communication
 - Data persists to data.json file

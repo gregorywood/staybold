@@ -1,5 +1,5 @@
 // Config
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://staybold.onrender.com/api';
 const APP_START_DATE = new Date(2025, 10, 9); // November 9, 2025 (month is 0-indexed)
 
 // State

@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StayBold</title>
+    <title>Stay Gold</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>StayBold</h1>
-            <div class="month-nav">
-                <button id="prev-month" class="nav-btn">←</button>
-                <h2 id="current-month">December 2025</h2>
-                <button id="next-month" class="nav-btn" disabled>→</button>
-            </div>
+            <h1>Stay Gold</h1>
         </header>
+
+        <div class="month-nav">
+            <button id="prev-month" class="nav-btn">←</button>
+            <h2 id="current-month">December 2025</h2>
+            <button id="next-month" class="nav-btn" disabled>→</button>
+        </div>
 
         <main>
             <div id="calendar" class="calendar">
@@ -59,6 +60,11 @@
                         <button class="toggle-btn" data-input="drugs" data-value="false">No</button>
                         <button class="toggle-btn" data-input="drugs" data-value="true">Yes</button>
                     </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" rows="3" placeholder="Optional notes..."></textarea>
                 </div>
             </div>
 

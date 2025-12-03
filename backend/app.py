@@ -65,7 +65,8 @@ def save_habit():
     data[date] = {
         'alcohol': habit_entry.get('alcohol', 0),
         'exercise': habit_entry.get('exercise', False),
-        'drugs': habit_entry.get('drugs', False)
+        'drugs': habit_entry.get('drugs', False),
+        'notes': habit_entry.get('notes', '')
     }
 
     write_data(data)
@@ -86,3 +87,6 @@ def delete_habit(date):
 if __name__ == '__main__':
     init_data_file()
     app.run(debug=True, port=5000)
+
+# Initialize data file on startup (for production)
+init_data_file()

@@ -19,6 +19,7 @@ const nextMonthBtn = document.getElementById('next-month');
 const closeModalBtn = document.getElementById('close-modal');
 const saveBtnEl = document.getElementById('save-btn');
 const alcoholSelect = document.getElementById('alcohol-level');
+const notesTextarea = document.getElementById('notes');
 
 // Initialize
 document.addEventListener('DOMContentLoaded', async () => {
@@ -67,9 +68,14 @@ function renderCalendar() {
         const date = new Date(year, month, day);
         const isFuture = date > today;
         const isBeforeStart = date < APP_START_DATE;
+        const isToday = date.getTime() === today.getTime();
 
         if (isFuture || isBeforeStart) {
             dayRow.classList.add('future');
+        }
+
+        if (isToday) {
+            dayRow.classList.add('today');
         }
 
         // Add weekend classes
@@ -93,14 +99,6 @@ function renderCalendar() {
                 dayRow.classList.add('no-drinks');
             }
 
-            // Show indicators for logged data
-            if (dayData.alcohol !== undefined && dayData.alcohol > 0) {
-                const alcoholIcon = document.createElement('span');
-                alcoholIcon.className = 'indicator';
-                alcoholIcon.textContent = '🍺'; // You can customize these icons
-                indicators.appendChild(alcoholIcon);
-            }
-
             if (dayData.exercise === true) {
                 const exerciseIcon = document.createElement('span');
                 exerciseIcon.className = 'indicator';
@@ -113,6 +111,23 @@ function renderCalendar() {
                 drugsIcon.className = 'indicator';
                 drugsIcon.textContent = '💊';
                 indicators.appendChild(drugsIcon);
+            }
+
+            // Show notes indicator if notes exist
+            if (dayData.notes && dayData.notes.trim() !== '') {
+                const notesIcon = document.createElement('span');
+                notesIcon.className = 'indicator';
+                notesIcon.textContent = '📝';
+                indicators.appendChild(notesIcon);
+            }
+
+            // Show alcohol level as text
+            if (dayData.alcohol !== undefined) {
+                const alcoholLabels = ['No drinks', 'Few drinks', 'Tipsy', 'Drunk', 'Hammered', 'Black out'];
+                const alcoholText = document.createElement('span');
+                alcoholText.className = 'indicator alcohol-text';
+                alcoholText.textContent = alcoholLabels[dayData.alcohol];
+                indicators.appendChild(alcoholText);
             }
         }
 
@@ -141,11 +156,13 @@ function openModal(dateStr, existingData) {
         alcoholSelect.value = existingData.alcohol || 0;
         setToggleState('exercise', existingData.exercise || false);
         setToggleState('drugs', existingData.drugs || false);
+        notesTextarea.value = existingData.notes || '';
     } else {
         // Reset to defaults
         alcoholSelect.value = 0;
         setToggleState('exercise', false);
         setToggleState('drugs', false);
+        notesTextarea.value = '';
     }
 
     modalEl.classList.remove('hidden');
@@ -194,7 +211,8 @@ async function saveHabitData() {
         date: selectedDate,
         alcohol: parseInt(alcoholSelect.value),
         exercise: getToggleValue('exercise'),
-        drugs: getToggleValue('drugs')
+        drugs: getToggleValue('drugs'),
+        notes: notesTextarea.value.trim()
     };
 
     try {

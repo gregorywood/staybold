@@ -6,25 +6,24 @@
 }
 
 body {
-    font-family: system-ui, -apple-system, sans-serif;
-    background: #fff;
-    color: #000;
+    font-family: "Futura-Bold", system-ui, -apple-system, sans-serif;
+    background: #ddd;
+    color: #222;
+    text-transform: uppercase;
 }
 
 .container {
     max-width: 100vw;
     min-height: 100vh;
-    padding: 20px;
 }
 
 /* Header */
 header {
-    margin-bottom: 30px;
+    padding:20px;
 }
 
 header h1 {
     font-size: 32px;
-    margin-bottom: 20px;
 }
 
 .month-nav {
@@ -32,6 +31,12 @@ header h1 {
     align-items: center;
     justify-content: space-between;
     gap: 15px;
+    width:100%;
+    padding:10px 20px;
+    position: sticky;
+    top:0;
+    background:#ddd;
+    z-index:5;
 }
 
 .month-nav h2 {
@@ -56,6 +61,9 @@ header h1 {
 }
 
 /* Calendar */
+main {
+    padding:20px;
+}
 .calendar {
     display: flex;
     flex-direction: column;
@@ -65,18 +73,35 @@ header h1 {
 .day-row {
     display: flex;
     align-items: center;
-    padding: 15px;
-    border: 1px solid #000;
+    padding:11px 0;
+    border-top: 2px dotted #000;
     cursor: pointer;
     min-height: 60px;
 }
-
-.day-row.no-drinks {
-    background: #d4edda;
+.day-row:last-child {
+    border-bottom:2px dotted #000;
+}
+.day-row.sat,
+.day-row.sun + .day-row {
+    border-top-style: solid;
+}
+.day-row.sat:last-child,
+.day-row.sun:last-child {
+    border-bottom-style: solid;
 }
 
+
+.day-row.no-drinks {
+    /*background: #d4edda;*/
+}
+
+.day-row.today + .future {
+    border-color:#000;
+}
 .day-row.future {
-    opacity: 0.3;
+    /*opacity: 0.3;*/
+    color:#aaa;
+    border-color:#aaa;
     cursor: not-allowed;
 }
 
@@ -93,9 +118,17 @@ header h1 {
 }
 
 .day-number {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
-    width: 40px;
+    line-height:1em;
+    width:35px;
+    height:35px;
+    text-align:center;
+    padding:0.6em;
+    border-radius:20px;
+}
+.today .day-number {
+    background:goldenrod;
 }
 
 .day-indicators {
@@ -105,7 +138,7 @@ header h1 {
 }
 
 .indicator {
-    font-size: 20px;
+    font-size: 14px;
 }
 
 /* Modal */
@@ -155,25 +188,34 @@ header h1 {
 
 .modal-body {
     padding: 20px;
+    padding-bottom:0;
 }
 
 .input-group {
     margin-bottom: 25px;
+    display:flex;
 }
 
 .input-group label {
     display: block;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin:auto 0;
+    width:8em;
 }
 
 .input-group select {
-    width: 100%;
     padding: 12px;
     font-size: 16px;
     border: 1px solid #000;
     background: #fff;
+}
+
+.input-group textarea {
+    font-size: 14px;
+    border: 1px solid #000;
+    background: #fff;
+    resize: vertical;
 }
 
 .toggle-group {

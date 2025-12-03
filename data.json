@@ -72,32 +72,38 @@
   "2025-11-23": {
     "alcohol": 3,
     "exercise": true,
-    "drugs": true
+    "drugs": true,
+    "notes": "rage, hike, sheffield"
   },
   "2025-11-24": {
     "alcohol": 0,
     "exercise": false,
-    "drugs": false
+    "drugs": false,
+    "notes": "depressed"
   },
   "2025-11-25": {
     "alcohol": 0,
     "exercise": false,
-    "drugs": false
+    "drugs": false,
+    "notes": "depressed"
   },
   "2025-11-26": {
     "alcohol": 0,
     "exercise": false,
-    "drugs": false
+    "drugs": false,
+    "notes": "depressed"
   },
   "2025-11-27": {
     "alcohol": 0,
     "exercise": false,
-    "drugs": false
+    "drugs": false,
+    "notes": "depressed"
   },
   "2025-11-28": {
     "alcohol": 0,
     "exercise": false,
-    "drugs": false
+    "drugs": false,
+    "notes": "depressed, day off"
   },
   "2025-11-29": {
     "alcohol": 0,
@@ -107,6 +113,24 @@
   "2025-11-30": {
     "alcohol": 3,
     "exercise": false,
-    "drugs": true
+    "drugs": true,
+    "notes": "xmas party, vino tinto, weed"
+  },
+  "2025-12-01": {
+    "alcohol": 0,
+    "exercise": false,
+    "drugs": false,
+    "notes": "day off depressed"
+  },
+  "2025-12-02": {
+    "alcohol": 0,
+    "exercise": false,
+    "drugs": false
+  },
+  "2025-12-03": {
+    "alcohol": 0,
+    "exercise": false,
+    "drugs": false,
+    "notes": "today is the day"
   }
 }
